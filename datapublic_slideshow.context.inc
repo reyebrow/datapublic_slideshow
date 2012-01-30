@@ -11,12 +11,18 @@ function datapublic_slideshow_context_default_contexts() {
   $export = array();
 
   $context = new stdClass;
-  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->disabled = TRUE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'slideshow';
   $context->description = '';
   $context->tag = 'Slideshow';
-  $context->conditions = array();
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        '<front>' => '<front>',
+      ),
+    ),
+  );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
@@ -24,7 +30,7 @@ function datapublic_slideshow_context_default_contexts() {
           'module' => 'views',
           'delta' => 'slideshow-block',
           'region' => 'pre_content',
-          'weight' => '-10',
+          'weight' => '-30',
         ),
       ),
     ),
