@@ -29,7 +29,7 @@ function datapublic_slideshow_context_default_contexts() {
         'views-slideshow-block' => array(
           'module' => 'views',
           'delta' => 'slideshow-block',
-          'region' => 'pre_content',
+          'region' => 'content',
           'weight' => '-30',
         ),
       ),
