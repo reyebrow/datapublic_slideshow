@@ -15,16 +15,16 @@
  * @param string $nid The node id for the current row, if known
  * @return string The formatted identifier
  */
-function _datapublic_unique_row_identifier($view_name, $display_name, $nid) {
+function _datapublic_slideshow_unique_row_identifier($view_name, $display_name, $nid) {
   $identifier_pattern = '%s--%s--nid-%s';
   return str_replace('_', '-', sprintf($identifier_pattern, $view_name, $display_name, $nid));
-} // _datapublic_unique_row_identifier()
+} // _datapublic_slideshow_unique_row_identifier()
 
 
 /**
  * Implements template_preprocess_views_view_fields().
  */
-function datapublic_preprocess_views_view_fields__slideshow__block(&$variables) {
+function datapublic_slideshow_preprocess_views_view_fields__slideshow__block(&$variables) {
   // If the 'Show photo only' box was checked:
   if ($variables['row']->field_field_slide_photo_only[0]['raw']['value'] == 1) {
     // Loop through the current fields:
@@ -43,23 +43,23 @@ function datapublic_preprocess_views_view_fields__slideshow__block(&$variables) 
   }
   // In all other cases, all we need do is create the stem of the view identifier,
   // just in case it's needed:
-  $variables['view_identifier'] = _datapublic_unique_row_identifier($variables['view']->name, $variables['view']->current_display, '');
-} // datapublic_preprocess_views_view_fields__slideshow()
+  $variables['view_identifier'] = _datapublic_slideshow_unique_row_identifier($variables['view']->name, $variables['view']->current_display, '');
+} // datapublic_slideshow_preprocess_views_view_fields__slideshow()
 
 
 /**
  * Implements template_preprocess_views_view_unformatted().
  *
- * @see datapublic_theme()
+ * @see datapublic_slideshow_theme()
  * @see views-view-unformatted--slideshow--block.tpl.php
  */
-function datapublic_preprocess_views_view_unformatted__slideshow__block(&$variables) {
+function datapublic_slideshow_preprocess_views_view_unformatted__slideshow__block(&$variables) {
   // Create an identifier for this view and display--in this instance, we pass an
   // empty string to the identifier function because we can't tell from here what
   // row this is! To make up for this, we set the row number--actually, the node
   // id--in the corresponding template file:
-  $variables['view_identifier'] = _datapublic_unique_row_identifier($variables['view']->name, $variables['view']->current_display, '');
-} // datapublic_preprocess_views_view_unformatted__slideshow__block()
+  $variables['view_identifier'] = _datapublic_slideshow_unique_row_identifier($variables['view']->name, $variables['view']->current_display, '');
+} // datapublic_slideshow_preprocess_views_view_unformatted__slideshow__block()
 
 
 /**
@@ -67,12 +67,12 @@ function datapublic_preprocess_views_view_unformatted__slideshow__block(&$variab
  *
  * @see http://views-help.doc.logrus.com/help/views/api-default-views
  * @see views-view--slideshow--block.tpl.php
- * @see datapublic_preprocess_views_view_fields__slideshow__block()
+ * @see datapublic_slideshow_preprocess_views_view_fields__slideshow__block()
  * @see views-view-fields--slideshow--block.tpl.php
- * @see datapublic_preprocess_views_view_unformatted__slideshow__block()
+ * @see datapublic_slideshow_preprocess_views_view_unformatted__slideshow__block()
  * @see views-view-unformatted--slideshow--block.tpl.php
  */
-function datapublic_theme($existing) {
+function datapublic_slideshow_theme($existing) {
   $module_theme_path = drupal_get_path('module', 'datapublic_slideshow') . '/theme';
   return array(
     // Theme info for display 'block' in view 'slideshow':
@@ -103,7 +103,7 @@ function datapublic_theme($existing) {
       'preprocess functions' => array(
         'template_preprocess',
         'template_preprocess_views_view_unformatted',
-        'datapublic_preprocess_views_view_unformatted__slideshow__block',
+        'datapublic_slideshow_preprocess_views_view_unformatted__slideshow__block',
       ),
     ),
     // Theme info for fields in display 'block' in view 'slideshow':
@@ -115,8 +115,8 @@ function datapublic_theme($existing) {
       'preprocess functions' => array(
         'template_preprocess',
         'template_preprocess_views_view_fields',
-        'datapublic_preprocess_views_view_fields__slideshow__block',
+        'datapublic_slideshow_preprocess_views_view_fields__slideshow__block',
       ),
     ),
   );
-} // datapublic_theme()
+} // datapublic_slideshow_theme()
