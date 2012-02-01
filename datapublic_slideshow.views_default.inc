@@ -19,7 +19,7 @@ function datapublic_slideshow_views_default_views() {
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
+  
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Slideshow';
@@ -194,12 +194,37 @@ function datapublic_slideshow_views_default_views() {
   $handler->display->display_options['fields']['field_slide_caption']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_slide_caption']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_slide_caption']['field_api_classes'] = 0;
+  /* Field: Orbit Content */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Orbit Content';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h2 class="orbit-title">[title]</h2>
+  <div class="orbit-body">[body]</div>';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'orbit-content panel four columns';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
   /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
-  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
   $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['edit_node']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['edit_node']['alter']['absolute'] = 0;
@@ -219,33 +244,6 @@ function datapublic_slideshow_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['empty_zero'] = 0;
   $handler->display->display_options['fields']['edit_node']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit Slide';
-  /* Field: Orbit Content */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Orbit Content';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<h2 class="orbit-title">[title]</h2>
-<div class="orbit-body">[body]</div>
-<div class="orbit-edit-link">[edit_node]</div>';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['nothing']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
-  $handler->display->display_options['fields']['nothing']['element_class'] = 'orbit-content panel four columns';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['nothing']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['nothing']['hide_alter_empty'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -273,7 +271,7 @@ function datapublic_slideshow_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
     '***DEFAULT_LANGUAGE***' => '***DEFAULT_LANGUAGE***',
   );
-
+  
   /* Display: Block: Slideshow */
   $handler = $view->new_display('block', 'Block: Slideshow', 'block');
   $handler->display->display_options['block_description'] = 'Slideshow: Homepage block';

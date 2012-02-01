@@ -26,7 +26,7 @@ function _datapublic_slideshow_unique_row_identifier($view_name, $display_name, 
  */
 function datapublic_slideshow_preprocess_views_view_fields__slideshow__block(&$variables) {
   // If the 'Show photo only' box was checked:
-  if ($variables['row']->field_field_slide_photo_only[0]['raw']['value'] == 1) {
+  if (count($variables['row']->field_field_slide_photo_only) > 0 && $variables['row']->field_field_slide_photo_only[0]['raw']['value'] == 1) {
     // Loop through the current fields:
     foreach ($variables['fields'] as $field_name => $field_data) {
       // And unset all those that are NOT the photo or the edit link:
