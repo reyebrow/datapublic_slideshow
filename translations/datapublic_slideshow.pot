@@ -3,10 +3,7 @@
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
-#  datapublic_slideshow.context.inc: n/a
-#  datapublic_slideshow.features.field.inc: n/a
-#  datapublic_slideshow.features.inc: n/a
-#  datapublic_slideshow.info: n/a
+#  n/a
 #
 #, fuzzy
 msgid ""
