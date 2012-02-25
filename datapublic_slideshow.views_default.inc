@@ -19,7 +19,7 @@ function datapublic_slideshow_views_default_views() {
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  
+
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Slideshow';
@@ -271,7 +271,7 @@ function datapublic_slideshow_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
     '***DEFAULT_LANGUAGE***' => '***DEFAULT_LANGUAGE***',
   );
-  
+
   /* Display: Block: Slideshow */
   $handler = $view->new_display('block', 'Block: Slideshow', 'block');
   $handler->display->display_options['block_description'] = 'Slideshow: Homepage block';
