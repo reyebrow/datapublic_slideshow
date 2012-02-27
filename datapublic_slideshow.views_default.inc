@@ -12,7 +12,7 @@ function datapublic_slideshow_views_default_views() {
 
   $view = new view;
   $view->name = 'slideshow';
-  $view->description = '';
+  $view->description = 'Provides a slideshow block using Slide content type nodes.';
   $view->tag = 'default';
   $view->base_table = 'node';
   $view->human_name = 'Slideshow';
