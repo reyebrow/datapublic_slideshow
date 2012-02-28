@@ -214,7 +214,7 @@ function datapublic_slideshow_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['trim'] = 0;
   $handler->display->display_options['fields']['nothing']['alter']['html'] = 0;
   $handler->display->display_options['fields']['nothing']['element_type'] = 'div';
-  $handler->display->display_options['fields']['nothing']['element_class'] = 'orbit-content panel four columns';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'orbit-content four columns';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['nothing']['element_default_classes'] = 1;
   $handler->display->display_options['fields']['nothing']['hide_empty'] = 0;
